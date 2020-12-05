@@ -1,2 +1,2 @@
 # wild-series
-[**09 - Symfony : Les relations bidirectionnelles avec Doctrine**](https://www.loom.com/share/2afeec664b814ec38ac4726fd59c4a98)
+[**09 - Symfony : Les relations bidirectionnelles avec Doctrine**](https://www.loom.com/share/f0868b8555da4c59b51f982e1f28bcb7)
