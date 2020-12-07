@@ -74,11 +74,6 @@ class CategoryController extends AbstractController
             ->getRepository(Category::class)
             ->findOneBy(['name' => $categoryName]);
 
-        if (!$category) {
-            throw $this->createNotFoundException(
-                'No category with name : ' . $categoryName . ' found in category\'s table.'
-            );
-        }
          $programs = $this->getDoctrine()
              ->getRepository(Program::class)
              ->findBy(

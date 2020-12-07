@@ -76,11 +76,6 @@ Class ProgramController extends AbstractController
                 ['program' => $program]
             );
 
-        if (!$program) {
-            throw $this->createNotFoundException(
-                'No program with id : '.$program.' found in program\'s table.'
-            );
-        }
         return $this->render('program/show.html.twig', [
             'program' => $program,
             'seasons' => $seasons,
@@ -103,11 +98,6 @@ Class ProgramController extends AbstractController
                 ['season' => $season]
             );
 
-        if (!$season) {
-            throw $this->createNotFoundException(
-                'No program with id : '.$season.' found in program\'s table.'
-            );
-        }
         return $this->render('program/season_show.html.twig', [
             'program' => $program,
             'season' => $season,
@@ -127,11 +117,6 @@ Class ProgramController extends AbstractController
      */
     public function showEpisode(Program $program, Season $season, Episode $episode): Response
     {
-        if (!$episode) {
-            throw $this->createNotFoundException(
-                'No program with id : '.$episode.' found in program\'s table.'
-            );
-        }
         return $this->render('program/episode_show.html.twig', [
             'program' => $program,
             'season' => $season,
