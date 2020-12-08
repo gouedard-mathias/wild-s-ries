@@ -15,6 +15,18 @@
                 <th>Name</th>
                 <td>{{ actor.name }}</td>
             </tr>
+            <tr>
+                <th>Programs</th>
+                <td>
+                    <ul>
+                        {% for program in actor.programs %}
+                            <li>{{ program.title }} </li>
+                        {% else %}
+                            <li>Aucune série n'est associé à cet acteur</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
         </tbody>
     </table>
 
