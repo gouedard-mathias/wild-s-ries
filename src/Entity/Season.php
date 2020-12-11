@@ -24,11 +24,6 @@ class Season
     /**
      * @ORM\Column(type="integer")
      */
-    private $program_id;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $number;
 
     /**
@@ -60,18 +55,6 @@ class Season
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getProgramId(): ?int
-    {
-        return $this->program_id;
-    }
-
-    public function setProgramId(int $program_id): self
-    {
-        $this->program_id = $program_id;
-
-        return $this;
     }
 
     public function getNumber(): ?int
