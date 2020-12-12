@@ -14,7 +14,6 @@ class SeasonType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('program_id', IntegerType::class)
             ->add('number', IntegerType::class)
             ->add('year', IntegerType::class)
             ->add('description', TextareaType::class)
