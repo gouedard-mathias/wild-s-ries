@@ -8,6 +8,8 @@ use App\Entity\Season;
 use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use App\Form\ProgramType;
@@ -40,36 +42,32 @@ Class ProgramController extends AbstractController
      *
      * @Route("/new", name="new")
      */
-    public function new(Request $request, Slugify $slugify) : Response
+    public function new(Request $request, Slugify $slugify, MailerInterface $mailer) : Response
     {
-        // Create a new Category Object
         $program = new Program();
-        // Create the associated Form
         $form = $this->createForm(ProgramType::class, $program);
-        // Get data from HTTP request
         $form->handleRequest($request);
-        // Was the form submitted ?
         if ($form->isSubmitted() && $form->isValid()) {
-            // Deal with the submitted data
-            // Get the Entity Manager
             $entityManager = $this->getDoctrine()->getManager();
-            // Persist Category Object
             $slug = $slugify->generate($program->getTitle());
             $program->setSlug($slug);
             $entityManager->persist($program);
-            // Flush the persisted object
             $entityManager->flush();
-            // Finally redirect to categories list
+            $email = (new Email())
+                ->from($this->getParameter('mailer_from'))
+                ->to('4d1b675774ca56@smtp.mailtrap.io')
+                ->subject('Une nouvelle série vient d\'être publiée !')
+                ->html($this->renderView('program/new_episode_email.html.twig', ['program' => $program]));
+
+            $mailer->send($email);
             return $this->redirectToRoute('program_index');
         }
-        // Render the form
         return $this->render('program/new.html.twig', ["form" => $form->createView()]);
     }
 
     /**
      * @Route("/{slug}", methods={"GET"}, name="show")
      * @param Program $program
-     * @ParamConverter("program", class="App\Entity\Program", options={"mapping": {"slug": "slug"}})
      * @return Response
      */
     public function show(Program $program): Response
