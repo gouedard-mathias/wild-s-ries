@@ -8,4 +8,4 @@
 [**15 - Symfony : EntityType**](https://www.loom.com/share/24f1d43c3ce14e2c901811fa77d2eed2)  
 [**16 - Symfony : Les fixtures**](https://www.loom.com/share/0433084f123542bb9d311d17bbae3e73)  
 [**17 - Symfony : Introduction aux “Services”**](https://www.loom.com/share/bd73839fb64b46f9bd3ab1d0b07cbfbd)  
-
+[**18 - Symfony : Envoi d’e-mail**](https://www.loom.com/share/4074c009f0ac438998ddb0e9f14520a8)  
