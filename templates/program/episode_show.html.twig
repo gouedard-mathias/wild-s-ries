@@ -19,12 +19,23 @@
             <div class="episode">
                 <h1 class="mt-0">{{ episode.number }} {{ episode.title }}</h1>
                 <p>{{ episode.synopsis }}</p>
+                {% if app.user %}
+                    <a href="{{ path("comment_new", {id: episode.id}) }}">
+                        Ajouter un commentaire
+                    </a>
+                {% else %}
+                {% endif %}
+                <ul>
+                    {% for comment in episode.comments %}
+                        <li>{{ comment.comment }} - {{ comment.rate }}</li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
 
-    <a href="{{ path('program_index') }}">
-        Retour à la liste des programmes
+    <a href="{{ path("program_season_show", { programSlug: program.slug, seasonId: season.id }) }}">
+        Retour à la liste des épisodes
     </a>
 
 {% endblock %}

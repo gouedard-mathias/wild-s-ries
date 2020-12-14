@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-    <a class="navbar-brand" href="#">Wild Séries</a>
+    <a class="navbar-brand" href="{{ path("app_index") }}">Wild Séries</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,10 +11,8 @@
                     Catégories
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="{{ path("category_index") }}">All</a>
+                    <a class="dropdown-item" href="{{ path("category_new") }}">Add</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -22,8 +20,8 @@
                     Acteurs
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="{{ path("actor_index") }}">All</a>
+                    <a class="dropdown-item" href="{{ path("actor_new") }}">Add</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
@@ -31,12 +29,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Mes Favoris</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Inscription</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Connexion</a>
-            </li>
         </ul>
+        {% if app.user %}
+            {{ app.user.email }}
+            <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+        {% else %}
+            <a href="{{ path('app_login') }}"> Se connecter</a>
+        {% endif %}
     </div>
 </nav>

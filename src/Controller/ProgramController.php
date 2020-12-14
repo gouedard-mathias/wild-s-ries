@@ -57,7 +57,7 @@ Class ProgramController extends AbstractController
                 ->from($this->getParameter('mailer_from'))
                 ->to('4d1b675774ca56@smtp.mailtrap.io')
                 ->subject('Une nouvelle série vient d\'être publiée !')
-                ->html($this->renderView('program/new_episode_email.html.twig', ['program' => $program]));
+                ->html($this->renderView('program/new_program_email.html.twig', ['program' => $program]));
 
             $mailer->send($email);
             return $this->redirectToRoute('program_index');
