@@ -2,3 +2,12 @@
   border: solid;
   border-radius: 10px;
 }
+
+.log {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  p {
+    margin-top: 1rem;
+  }
+}
