@@ -10,3 +10,4 @@
 [**17 - Symfony : Introduction aux “Services”**](https://www.loom.com/share/bd73839fb64b46f9bd3ab1d0b07cbfbd)  
 [**18 - Symfony : Envoi d’e-mail**](https://www.loom.com/share/4074c009f0ac438998ddb0e9f14520a8)  
 [**19 - Symfony : Gestion des utilisateurs**](https://www.loom.com/share/7bac47c9ca7c459294c224435fca5ae1)  
+[**20 - Symfony : Sécurisons nos routes.**](https://www.loom.com/share/41680a265c504beb89f4ce9d575a4b3c)  
