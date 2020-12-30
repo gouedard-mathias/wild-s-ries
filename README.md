@@ -9,3 +9,4 @@
 [**16 - Symfony : Les fixtures**](https://www.loom.com/share/0433084f123542bb9d311d17bbae3e73)  
 [**17 - Symfony : Introduction aux “Services”**](https://www.loom.com/share/bd73839fb64b46f9bd3ab1d0b07cbfbd)  
 [**18 - Symfony : Envoi d’e-mail**](https://www.loom.com/share/4074c009f0ac438998ddb0e9f14520a8)  
+[**19 - Symfony : Gestion des utilisateurs**](https://www.loom.com/share/7bac47c9ca7c459294c224435fca5ae1)  
