@@ -58,6 +58,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
             $program->setCategory($this->getReference('category_' . rand(0,count(CategoryFixtures::CATEGORIES)-1)));
             $slug = $this->slugify->generate($program->getTitle());
             $program->setSlug($slug);
+            $program->setOwner($this->getReference('user_' . rand(1,2)));
             $manager->persist($program);
             $this->addReference('program_' . $i, $program);
             $i++;
