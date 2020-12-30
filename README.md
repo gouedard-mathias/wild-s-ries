@@ -11,3 +11,4 @@
 [**18 - Symfony : Envoi d’e-mail**](https://www.loom.com/share/4074c009f0ac438998ddb0e9f14520a8)  
 [**19 - Symfony : Gestion des utilisateurs**](https://www.loom.com/share/7bac47c9ca7c459294c224435fca5ae1)  
 [**20 - Symfony : Sécurisons nos routes.**](https://www.loom.com/share/41680a265c504beb89f4ce9d575a4b3c)  
+[**21 - Symfony : Inscription d’un utilisateur**](https://www.loom.com/share/e52d0c39f5fd45d49489af5c62364a31)  
