@@ -63,6 +63,7 @@ Class ProgramController extends AbstractController
             $program->setOwner($this->getUser());
             $entityManager->persist($program);
             $entityManager->flush();
+            $this->addFlash('success', 'The new program has been created');
             $email = (new Email())
                 ->from($this->getParameter('mailer_from'))
                 ->to('4d1b675774ca56@smtp.mailtrap.io')
@@ -150,6 +151,7 @@ Class ProgramController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'The program has been modified');
 
             return $this->redirectToRoute('program_index');
         }
@@ -158,5 +160,20 @@ Class ProgramController extends AbstractController
             'program' => $program,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Program $program): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$program->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($program);
+            $entityManager->flush();
+            $this->addFlash('danger', 'The program has been deleted');
+        }
+
+        return $this->redirectToRoute('program_index');
     }
 }
