@@ -7,6 +7,7 @@ use App\Service\Slugify;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Faker;
 
 class ProgramFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -53,8 +54,10 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         $i=0;
         foreach (self::PROGRAMS as $title => $data){
             $program = new Program();
+            $faker  =  Faker\Factory::create('fr_FR');
             $program->setTitle($title);
             $program->setSummary($data['summary']);
+            $program->setUpdatedAt($faker->dateTimeAD);
             $program->setCategory($this->getReference('category_' . rand(0,count(CategoryFixtures::CATEGORIES)-1)));
             $slug = $this->slugify->generate($program->getTitle());
             $program->setSlug($slug);
